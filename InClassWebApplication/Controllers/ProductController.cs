@@ -55,9 +55,15 @@ namespace InClassWebApplication.Controllers
             return View(prod);
         }
 
-        public IActionResult InsertProductToDatebase(Product productToInsert)
+        public IActionResult InsertProductToDatabase(Product productToInsert)
         {
             repo.InsertProduct(productToInsert);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(Product product)
+        {
+            repo.DeleteProduct(product);
             return RedirectToAction("Index");
         }
     }
